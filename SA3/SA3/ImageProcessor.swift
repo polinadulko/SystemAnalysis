@@ -11,6 +11,8 @@ import Charts
 
 class ImageProcessor {
     
+    var intensitiesArray = [Int]()
+    
     func getIntensitiesArray(sourceImage: CGImage) -> [UInt8] {
         let width = sourceImage.width
         let height = sourceImage.height
@@ -20,6 +22,9 @@ class ImageProcessor {
         var intensities = [UInt8](repeating: 0, count: totalBytes)
         if let context = CGContext(data: &intensities, width: width, height: height, bitsPerComponent: bitsPerComponent, bytesPerRow: bytesPerRow, space: CGColorSpaceCreateDeviceGray(), bitmapInfo: 0) {
             context.draw(sourceImage, in: CGRect(x: 0.0, y: 0.0, width: CGFloat(width), height: CGFloat(height)))
+        }
+        for intensity in intensities {
+            intensitiesArray.append(Int(intensity))
         }
         return intensities
     }
@@ -58,6 +63,45 @@ class ImageProcessor {
         let dataSet = BarChartDataSet(values: dataEntries, label: title)
         dataSet.colors = [NSUIColor(calibratedRed: 20/255, green: 142/255, blue: 97/255, alpha: 1.0)]
         return BarChartData(dataSet: dataSet)
+    }
+   
+    func calculateStandartDeviation(array: [Int]) -> Int {
+        let n = array.count
+        let average = array.reduce(0, +) / n
+        var standartDeviation: Double = 0
+        for value in array {
+            standartDeviation += pow(Double(value - average), 2)
+        }
+        return Int(standartDeviation) / (n-1)
+    }
+    
+    func calculateParameters() -> String {
+        guard intensitiesArray.count != 0 else { return "" }
+        let n = intensitiesArray.count
+        let average = intensitiesArray.reduce(0, +) / n
+        let standartDeviation = calculateStandartDeviation(array: intensitiesArray)
+        intensitiesArray.sort { (first, second) -> Bool in
+            first < second
+        }
+        var median  = 0
+        let middleNum = intensitiesArray.count / 2
+        if intensitiesArray.count % 2 == 0 {
+            median = (intensitiesArray[middleNum] + intensitiesArray[middleNum + 1]) / 2
+        } else {
+            median = intensitiesArray[middleNum]
+        }
+        var counts = [Int: Int]()
+        intensitiesArray.forEach { (intensity) in
+            if let count = counts[intensity] {
+                counts[intensity] = count + 1
+            } else {
+                counts[intensity] = 1
+            }
+        }
+        guard let maxCount = counts.max(by: { (first, second) -> Bool in
+            first.value < second.value
+        }) else { return "" }
+        return "m = \(average)\nD = \(standartDeviation)\nМедиана = \(median)\nМода = \(maxCount.key)"
     }
     
 }

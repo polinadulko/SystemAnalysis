@@ -31,6 +31,8 @@ class ViewController: NSViewController {
             firstChartView.data = histogramData
             firstChartView.barData?.barWidth = 10
             firstChartView.data?.setDrawValues(false)
+            let resultStr = imageProcessor.calculateParameters()
+            print(resultStr)
         }
         guard let secondSourceImage = NSImage(named: "image2") else { return }
         let secondImageConverter = ImageConverter(sourceImage: secondSourceImage)
@@ -42,6 +44,8 @@ class ViewController: NSViewController {
             secondChartView.data = histogramData
             secondChartView.barData?.barWidth = 10
             secondChartView.data?.setDrawValues(false)
+            let resultStr = imageProcessor.calculateParameters()
+            print(resultStr)
         }
     }
     

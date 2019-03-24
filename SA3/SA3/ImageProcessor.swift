@@ -13,7 +13,7 @@ class ImageProcessor {
     
     var intensitiesArray = [Int]()
     
-    func getIntensitiesArray(sourceImage: CGImage) -> [UInt8] {
+    func getIntensitiesArray(sourceImage: CGImage) -> [Int] {
         let width = sourceImage.width
         let height = sourceImage.height
         let bitsPerComponent = sourceImage.bitsPerComponent
@@ -23,13 +23,15 @@ class ImageProcessor {
         if let context = CGContext(data: &intensities, width: width, height: height, bitsPerComponent: bitsPerComponent, bytesPerRow: bytesPerRow, space: CGColorSpaceCreateDeviceGray(), bitmapInfo: 0) {
             context.draw(sourceImage, in: CGRect(x: 0.0, y: 0.0, width: CGFloat(width), height: CGFloat(height)))
         }
+        var newArray = [Int]()
         for intensity in intensities {
-            intensitiesArray.append(Int(intensity))
+            newArray.append(Int(intensity))
         }
-        return intensities
+        intensitiesArray = newArray
+        return newArray
     }
     
-    func getDataForHistogram(dataArray: [UInt8]) -> [Int: Int] {
+    func getDataForHistogram(dataArray: [Int]) -> [Int: Int] {
         var sortedArray = dataArray
         sortedArray.sort { (first, second) -> Bool in
             return first < second
@@ -46,10 +48,15 @@ class ImageProcessor {
                 count = 0
             }
         }
+        for intervalStart in 0...25 {
+            if intensitiesDistribution[intervalStart * 10] == nil {
+                intensitiesDistribution[intervalStart * 10] = 0
+            }
+        }
         return intensitiesDistribution
     }
     
-    func buildHistogram(dataArray: [UInt8], title: String) -> BarChartData {
+    func buildHistogram(dataArray: [Int], title: String) -> BarChartData {
         let intensitiesDistribution = getDataForHistogram(dataArray: dataArray)
         var dataEntries: [BarChartDataEntry] = []
         for intervalStart in 0...25 {
@@ -102,6 +109,23 @@ class ImageProcessor {
             first.value < second.value
         }) else { return "" }
         return "m = \(average)\nD = \(standartDeviation)\nМедиана = \(median)\nМода = \(maxCount.key)"
+    }
+    
+    func calculateCorrelationCoefficient(xArray: [Int], yArray: [Int]) -> Double {
+        let n = xArray.count
+        let averageX = xArray.reduce(0, +) / n
+        let averageY = yArray.reduce(0, +) / n
+        var a = 0
+        for i in 0...xArray.count-1 {
+            a += (xArray[i] - averageX) * (yArray[i] - averageY)
+        }
+        var tempX: Double = 0
+        var tempY: Double = 0
+        for i in 0...xArray.count-1 {
+            tempX += pow(Double(xArray[i] - averageX), 2)
+            tempY += pow(Double(yArray[i] - averageY), 2)
+        }
+        return Double(a) / sqrt(tempX * tempY)
     }
     
 }

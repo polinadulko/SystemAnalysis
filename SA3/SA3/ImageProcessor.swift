@@ -108,7 +108,8 @@ class ImageProcessor {
         guard let maxCount = counts.max(by: { (first, second) -> Bool in
             first.value < second.value
         }) else { return "" }
-        return "m = \(average), D = \(dispersion)\nМедиана = \(median)\nМода = \(maxCount.key)"
+        let standartDeviation = Int(sqrt(Double(dispersion)))
+        return "m = \(average), D = \(standartDeviation)\nМедиана = \(median)\nМода = \(maxCount.key)"
     }
     
     func calculateCorrelationCoefficient(xArray: [Int], yArray: [Int]) -> Double {

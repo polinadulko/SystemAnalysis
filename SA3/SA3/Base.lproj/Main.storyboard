@@ -706,25 +706,25 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="SA3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="970" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="970" height="772"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="uWu-Y4-YLc" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="35" width="450" height="300"/>
+                                <rect key="frame" x="20" y="207" width="450" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="450" id="fyi-ZR-xQ2"/>
                                     <constraint firstAttribute="height" constant="300" id="lrg-sH-hAA"/>
                                 </constraints>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="Yhz-qM-4Pn" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="500" y="35" width="450" height="300"/>
+                                <rect key="frame" x="500" y="207" width="450" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="450" id="sIm-Nn-1Xy"/>
                                     <constraint firstAttribute="height" constant="300" id="zra-VX-B3F"/>
                                 </constraints>
                             </customView>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1kJ-Jn-idd">
-                                <rect key="frame" x="45" y="355" width="400" height="225"/>
+                                <rect key="frame" x="45" y="527" width="400" height="225"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="400" id="G3u-qG-J0w"/>
                                     <constraint firstAttribute="height" constant="225" id="MAZ-US-Yyk"/>
@@ -732,35 +732,71 @@
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="image1" id="Nlu-sE-bPf"/>
                             </imageView>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="egP-MG-8e7">
-                                <rect key="frame" x="525" y="355" width="400" height="225"/>
+                                <rect key="frame" x="525" y="527" width="400" height="225"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="225" id="Myy-5V-6vq"/>
                                     <constraint firstAttribute="width" constant="400" id="khA-Fw-mx3"/>
                                 </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="image2" id="FwQ-33-C1L"/>
                             </imageView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lnV-Wk-yo8">
+                                <rect key="frame" x="33" y="175" width="439" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="SDC-1k-Rpq">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TUh-Ef-8Xb">
+                                <rect key="frame" x="513" y="175" width="439" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="mYU-d2-9su">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cmm-gZ-tDZ">
+                                <rect key="frame" x="33" y="143" width="919" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="Q7P-ac-2K7">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Yhz-qM-4Pn" firstAttribute="top" secondItem="egP-MG-8e7" secondAttribute="bottom" constant="20" id="7xc-ua-MGu"/>
                             <constraint firstItem="1kJ-Jn-idd" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="8d6-Ra-UXC"/>
                             <constraint firstItem="egP-MG-8e7" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="BAD-Kf-1gd"/>
                             <constraint firstItem="uWu-Y4-YLc" firstAttribute="centerX" secondItem="1kJ-Jn-idd" secondAttribute="centerX" id="CfB-Wj-3p0"/>
+                            <constraint firstItem="TUh-Ef-8Xb" firstAttribute="leading" secondItem="Yhz-qM-4Pn" secondAttribute="leading" constant="15" id="Db3-qe-iXy"/>
                             <constraint firstItem="Yhz-qM-4Pn" firstAttribute="leading" secondItem="uWu-Y4-YLc" secondAttribute="trailing" constant="30" id="GPw-6v-6zy"/>
+                            <constraint firstItem="cmm-gZ-tDZ" firstAttribute="top" secondItem="lnV-Wk-yo8" secondAttribute="bottom" constant="15" id="HKy-yf-4Mw"/>
+                            <constraint firstItem="cmm-gZ-tDZ" firstAttribute="trailing" secondItem="TUh-Ef-8Xb" secondAttribute="trailing" id="MX7-IQ-Hqh"/>
+                            <constraint firstItem="TUh-Ef-8Xb" firstAttribute="top" secondItem="Yhz-qM-4Pn" secondAttribute="bottom" constant="15" id="NWH-fE-bgh"/>
+                            <constraint firstItem="lnV-Wk-yo8" firstAttribute="trailing" secondItem="uWu-Y4-YLc" secondAttribute="trailing" id="Nv3-7D-xDJ"/>
+                            <constraint firstItem="lnV-Wk-yo8" firstAttribute="leading" secondItem="uWu-Y4-YLc" secondAttribute="leading" constant="15" id="RcP-g1-lQA"/>
+                            <constraint firstItem="TUh-Ef-8Xb" firstAttribute="trailing" secondItem="Yhz-qM-4Pn" secondAttribute="trailing" id="RdB-ap-47G"/>
+                            <constraint firstItem="lnV-Wk-yo8" firstAttribute="top" secondItem="uWu-Y4-YLc" secondAttribute="bottom" constant="15" id="Su7-2O-R5b"/>
                             <constraint firstItem="uWu-Y4-YLc" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="Sy4-QL-pXY"/>
+                            <constraint firstItem="cmm-gZ-tDZ" firstAttribute="leading" secondItem="lnV-Wk-yo8" secondAttribute="leading" id="XbF-hL-u3m"/>
                             <constraint firstItem="uWu-Y4-YLc" firstAttribute="top" secondItem="1kJ-Jn-idd" secondAttribute="bottom" constant="20" id="eqH-Ta-gbi"/>
                             <constraint firstItem="Yhz-qM-4Pn" firstAttribute="centerX" secondItem="egP-MG-8e7" secondAttribute="centerX" id="zSD-8j-Tet"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="commonResultsLabel" destination="cmm-gZ-tDZ" id="sXd-Zb-c6c"/>
                         <outlet property="firstChartView" destination="uWu-Y4-YLc" id="8nH-mT-p6v"/>
+                        <outlet property="firstImageLabel" destination="lnV-Wk-yo8" id="VGh-ta-kl9"/>
                         <outlet property="firstImageView" destination="1kJ-Jn-idd" id="vwv-SM-shk"/>
                         <outlet property="secondChartView" destination="Yhz-qM-4Pn" id="dRr-vb-Ne7"/>
+                        <outlet property="secondImageLabel" destination="TUh-Ef-8Xb" id="fOZ-Ai-Rmu"/>
                         <outlet property="secondImageView" destination="egP-MG-8e7" id="wdf-xu-bCx"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="69" y="951"/>
+            <point key="canvasLocation" x="69" y="1037"/>
         </scene>
     </scenes>
     <resources>

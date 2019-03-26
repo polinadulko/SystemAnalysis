@@ -15,6 +15,9 @@ class ViewController: NSViewController {
     @IBOutlet weak var secondChartView: BarChartView!
     @IBOutlet weak var firstImageView: NSImageView!
     @IBOutlet weak var secondImageView: NSImageView!
+    @IBOutlet weak var firstImageLabel: NSTextField!
+    @IBOutlet weak var secondImageLabel: NSTextField!
+    @IBOutlet weak var commonResultsLabel: NSTextField!
     let imageProcessor = ImageProcessor()
     var xIntensities = [Int]()
     var yIntensities = [Int]()
@@ -30,10 +33,9 @@ class ViewController: NSViewController {
             firstChartView.data = histogramData
             firstChartView.barData?.barWidth = 10
             firstChartView.data?.setDrawValues(false)
-            let resultStr = imageProcessor.calculateParameters()
-            print(resultStr)
+            firstImageLabel.stringValue = imageProcessor.calculateParameters()
         }
-        guard let secondSourceImage = NSImage(named: "image2") else { return }
+        guard let secondSourceImage = NSImage(named: "image3") else { return }
         let secondImageConverter = ImageConverter(sourceImage: secondSourceImage)
         if let resultImage = secondImageConverter.convertToGrayscale() {
             secondImageView.image = NSImage(cgImage: resultImage, size: NSZeroSize)
@@ -42,18 +44,18 @@ class ViewController: NSViewController {
             secondChartView.data = histogramData
             secondChartView.barData?.barWidth = 10
             secondChartView.data?.setDrawValues(false)
-            
-            let resultStr = imageProcessor.calculateParameters()
-            print(resultStr)
-            
+            secondImageLabel.stringValue = imageProcessor.calculateParameters()
+            //Коэффициент корреляции
             let correlationForImages = imageProcessor.calculateCorrelationCoefficient(xArray: xIntensities, yArray: yIntensities)
-            let correlationForHistograms = getCorrelationForHistograms(imageProcessor: imageProcessor)
-            let correlationStr = NSString(format: "%.4f\n%.4f", correlationForImages, correlationForHistograms)
-            print(correlationStr)
+            let (correlationForHistograms, xHistogramDictionary, yHistogramDictionary) = getCorrelationForHistograms(imageProcessor: imageProcessor)
+            commonResultsLabel.stringValue = NSString(format: "Коэффициент корреляции: для гистограмм = %.4f,  для изображений = %.4f\n", correlationForHistograms, correlationForImages) as String
+            //Проверка гипотез
+            let criticalValue = 46.93
+            commonResultsLabel.stringValue += "Проверка гипотез:\nH0 – распределение соответствует нормальному, H1 ­- распределение не соответствует нормальному\nα = 0.5%    " + (NSString(format: "x2(кр) = %.2f\n", criticalValue) as String) + "1. " + imageProcessor.hypothesisTesting(histogramData: xHistogramDictionary) + "\n2. " + imageProcessor.hypothesisTesting(histogramData: yHistogramDictionary)
         }
     }
     
-    func getCorrelationForHistograms(imageProcessor: ImageProcessor) -> Double {
+    func getCorrelationForHistograms(imageProcessor: ImageProcessor) -> (Double, [Int: Int], [Int: Int]) {
         let xHistogramDictionary = imageProcessor.getDataForHistogram(dataArray: xIntensities)
         var xHistogramArray = [Int]()
         for item in xHistogramDictionary {
@@ -65,7 +67,7 @@ class ViewController: NSViewController {
             yHistogramArray.append(item.value)
         }
         let correlationForHistograms = imageProcessor.calculateCorrelationCoefficient(xArray: xHistogramArray, yArray: yHistogramArray)
-        return correlationForHistograms
+        return (correlationForHistograms, xHistogramDictionary, yHistogramDictionary)
     }
     
     override var representedObject: Any? {

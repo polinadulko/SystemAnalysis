@@ -168,8 +168,8 @@ class ImageProcessor {
             resValue += pow(Double(intervalCount - theoreticalValue), 2) / Double(theoreticalValue)
         }
         
-        //For 0.5% level of significance
-        let criticalValue = 46.93
+        //For 0.05 level of significance
+        let criticalValue = 33.92
         var resStr = NSString(format: "x2(набл) = %.2f  ->  ", resValue) as String
         if resValue > criticalValue {
             resStr += "H1"

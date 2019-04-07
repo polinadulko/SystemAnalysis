@@ -24,7 +24,7 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let firstSourceImage = NSImage(named: "image1") else { return }
+        guard let firstSourceImage = NSImage(named: "image4") else { return }
         let firstImageConverter = ImageConverter(sourceImage: firstSourceImage)
         if let resultImage = firstImageConverter.convertToGrayscale() {
             firstImageView.image = NSImage(cgImage: resultImage, size: NSZeroSize)
@@ -35,7 +35,7 @@ class ViewController: NSViewController {
             firstChartView.data?.setDrawValues(false)
             firstImageLabel.stringValue = imageProcessor.calculateParameters()
         }
-        guard let secondSourceImage = NSImage(named: "image3") else { return }
+        guard let secondSourceImage = NSImage(named: "image1") else { return }
         let secondImageConverter = ImageConverter(sourceImage: secondSourceImage)
         if let resultImage = secondImageConverter.convertToGrayscale() {
             secondImageView.image = NSImage(cgImage: resultImage, size: NSZeroSize)
@@ -50,8 +50,8 @@ class ViewController: NSViewController {
             let (correlationForHistograms, xHistogramDictionary, yHistogramDictionary) = getCorrelationForHistograms(imageProcessor: imageProcessor)
             commonResultsLabel.stringValue = NSString(format: "Коэффициент корреляции: для гистограмм = %.4f,  для изображений = %.4f\n", correlationForHistograms, correlationForImages) as String
             //Проверка гипотез
-            let criticalValue = 46.93
-            commonResultsLabel.stringValue += "Проверка гипотез:\nH0 – распределение соответствует нормальному, H1 ­- распределение не соответствует нормальному\nα = 0.5%    " + (NSString(format: "x2(кр) = %.2f\n", criticalValue) as String) + "1. " + imageProcessor.hypothesisTesting(histogramData: xHistogramDictionary) + "\n2. " + imageProcessor.hypothesisTesting(histogramData: yHistogramDictionary)
+            let criticalValue = 33.92
+            commonResultsLabel.stringValue += "Проверка гипотез:\nH0 – распределение соответствует нормальному, H1 ­- распределение не соответствует нормальному\nα = 0.05    " + (NSString(format: "x2(кр) = %.2f\n", criticalValue) as String) + "1. " + imageProcessor.hypothesisTesting(histogramData: xHistogramDictionary) + "\n2. " + imageProcessor.hypothesisTesting(histogramData: yHistogramDictionary)
         }
     }
     

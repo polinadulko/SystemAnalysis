@@ -1,0 +1,356 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		52800532225A4C4B003818B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52800531225A4C4B003818B9 /* AppDelegate.swift */; };
+		52800534225A4C4B003818B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52800533225A4C4B003818B9 /* ViewController.swift */; };
+		52800536225A4C4C003818B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52800535225A4C4C003818B9 /* Assets.xcassets */; };
+		52800539225A4C4C003818B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52800537225A4C4C003818B9 /* Main.storyboard */; };
+		52800544225A4E09003818B9 /* Networking in Resources */ = {isa = PBXBuildFile; fileRef = 52800541225A4E08003818B9 /* Networking */; };
+		52800545225A4E09003818B9 /* Medicine in Resources */ = {isa = PBXBuildFile; fileRef = 52800542225A4E08003818B9 /* Medicine */; };
+		52800546225A4E09003818B9 /* Sociology in Resources */ = {isa = PBXBuildFile; fileRef = 52800543225A4E08003818B9 /* Sociology */; };
+		52800548225A4F6A003818B9 /* TextHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52800547225A4F6A003818B9 /* TextHandler.swift */; };
+		5280054A225A5056003818B9 /* stop.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52800549225A5056003818B9 /* stop.txt */; };
+		5280054C225A6350003818B9 /* ClasteringHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5280054B225A6350003818B9 /* ClasteringHandler.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5280052E225A4C4B003818B9 /* Clustering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clustering.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		52800531225A4C4B003818B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		52800533225A4C4B003818B9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		52800535225A4C4C003818B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		52800538225A4C4C003818B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5280053A225A4C4C003818B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5280053B225A4C4C003818B9 /* Clustering.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Clustering.entitlements; sourceTree = "<group>"; };
+		52800541225A4E08003818B9 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Networking; sourceTree = "<group>"; };
+		52800542225A4E08003818B9 /* Medicine */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Medicine; sourceTree = "<group>"; };
+		52800543225A4E08003818B9 /* Sociology */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sociology; sourceTree = "<group>"; };
+		52800547225A4F6A003818B9 /* TextHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextHandler.swift; sourceTree = "<group>"; };
+		52800549225A5056003818B9 /* stop.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stop.txt; sourceTree = "<group>"; };
+		5280054B225A6350003818B9 /* ClasteringHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClasteringHandler.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5280052B225A4C4B003818B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		52800525225A4C4B003818B9 = {
+			isa = PBXGroup;
+			children = (
+				52800530225A4C4B003818B9 /* Clustering */,
+				5280052F225A4C4B003818B9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5280052F225A4C4B003818B9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5280052E225A4C4B003818B9 /* Clustering.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		52800530225A4C4B003818B9 /* Clustering */ = {
+			isa = PBXGroup;
+			children = (
+				52800531225A4C4B003818B9 /* AppDelegate.swift */,
+				52800533225A4C4B003818B9 /* ViewController.swift */,
+				52800547225A4F6A003818B9 /* TextHandler.swift */,
+				5280054B225A6350003818B9 /* ClasteringHandler.swift */,
+				52800535225A4C4C003818B9 /* Assets.xcassets */,
+				52800537225A4C4C003818B9 /* Main.storyboard */,
+				5280053A225A4C4C003818B9 /* Info.plist */,
+				5280053B225A4C4C003818B9 /* Clustering.entitlements */,
+				52800549225A5056003818B9 /* stop.txt */,
+				52800542225A4E08003818B9 /* Medicine */,
+				52800541225A4E08003818B9 /* Networking */,
+				52800543225A4E08003818B9 /* Sociology */,
+			);
+			path = Clustering;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5280052D225A4C4B003818B9 /* Clustering */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5280053E225A4C4C003818B9 /* Build configuration list for PBXNativeTarget "Clustering" */;
+			buildPhases = (
+				5280052A225A4C4B003818B9 /* Sources */,
+				5280052B225A4C4B003818B9 /* Frameworks */,
+				5280052C225A4C4B003818B9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Clustering;
+			productName = Clustering;
+			productReference = 5280052E225A4C4B003818B9 /* Clustering.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52800526225A4C4B003818B9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Polina Dulko";
+				TargetAttributes = {
+					5280052D225A4C4B003818B9 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 52800529225A4C4B003818B9 /* Build configuration list for PBXProject "Clustering" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 52800525225A4C4B003818B9;
+			productRefGroup = 5280052F225A4C4B003818B9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5280052D225A4C4B003818B9 /* Clustering */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5280052C225A4C4B003818B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52800544225A4E09003818B9 /* Networking in Resources */,
+				52800536225A4C4C003818B9 /* Assets.xcassets in Resources */,
+				52800546225A4E09003818B9 /* Sociology in Resources */,
+				52800545225A4E09003818B9 /* Medicine in Resources */,
+				5280054A225A5056003818B9 /* stop.txt in Resources */,
+				52800539225A4C4C003818B9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5280052A225A4C4B003818B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5280054C225A6350003818B9 /* ClasteringHandler.swift in Sources */,
+				52800548225A4F6A003818B9 /* TextHandler.swift in Sources */,
+				52800534225A4C4B003818B9 /* ViewController.swift in Sources */,
+				52800532225A4C4B003818B9 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		52800537225A4C4C003818B9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52800538225A4C4C003818B9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5280053C225A4C4C003818B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5280053D225A4C4C003818B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		5280053F225A4C4C003818B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Clustering/Clustering.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = P2Y7BAN599;
+				INFOPLIST_FILE = Clustering/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.polinadulko.Clustering;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		52800540225A4C4C003818B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Clustering/Clustering.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = P2Y7BAN599;
+				INFOPLIST_FILE = Clustering/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.polinadulko.Clustering;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		52800529225A4C4B003818B9 /* Build configuration list for PBXProject "Clustering" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5280053C225A4C4C003818B9 /* Debug */,
+				5280053D225A4C4C003818B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5280053E225A4C4C003818B9 /* Build configuration list for PBXNativeTarget "Clustering" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5280053F225A4C4C003818B9 /* Debug */,
+				52800540225A4C4C003818B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 52800526225A4C4B003818B9 /* Project object */;
+}

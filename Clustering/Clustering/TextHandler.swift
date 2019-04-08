@@ -79,18 +79,25 @@ class TextHandler {
         return mostFrequentWords
     }
     
+    func getVectorForText(fileTitle: String, subdirectoryTitle: String, clasteringHandler: ClasteringHandler?) -> [Int]? {
+        guard let clasteringHandler = clasteringHandler, let fileURL = Bundle.main.url(forResource: fileTitle, withExtension: "txt", subdirectory: subdirectoryTitle) else { return nil }
+        if FileManager.default.fileExists(atPath: fileURL.path) {
+            guard let data = FileManager.default.contents(atPath: fileURL.path) else { return [] }
+            guard let dataStr = String(data: data, encoding: .utf8) else { return [] }
+            if let vector = clasteringHandler.createVector(for: dataStr) {
+                return vector
+            }
+        }
+        return nil
+    }
+    
     func getVectorsForSet(set title: String, clasteringHandler: ClasteringHandler?) -> [[Int]] {
         guard let clasteringHandler = clasteringHandler else { return [] }
         var vectorsForSet = [[Int]]()
         for i in 1...4 {
             let fileTitle = title.lowercased() + "_\(i)"
-            guard let fileURL = Bundle.main.url(forResource: fileTitle, withExtension: "txt", subdirectory: title) else { return [] }
-            if FileManager.default.fileExists(atPath: fileURL.path) {
-                guard let data = FileManager.default.contents(atPath: fileURL.path) else { return [] }
-                guard let dataStr = String(data: data, encoding: .utf8) else { return [] }
-                if let vector = clasteringHandler.createVector(for: dataStr) {
-                    vectorsForSet.append(vector)
-                }
+            if let vector = getVectorForText(fileTitle: fileTitle, subdirectoryTitle: title, clasteringHandler: clasteringHandler) {
+                vectorsForSet.append(vector)
             }
         }
         return vectorsForSet

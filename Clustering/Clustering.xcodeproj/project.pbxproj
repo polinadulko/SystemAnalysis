@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52345588225B2AA4007A1A3B /* KMeans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52345587225B2AA4007A1A3B /* KMeans.swift */; };
 		52800532225A4C4B003818B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52800531225A4C4B003818B9 /* AppDelegate.swift */; };
 		52800534225A4C4B003818B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52800533225A4C4B003818B9 /* ViewController.swift */; };
 		52800536225A4C4C003818B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52800535225A4C4C003818B9 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52345587225B2AA4007A1A3B /* KMeans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMeans.swift; sourceTree = "<group>"; };
 		5280052E225A4C4B003818B9 /* Clustering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clustering.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52800531225A4C4B003818B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52800533225A4C4B003818B9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				52800533225A4C4B003818B9 /* ViewController.swift */,
 				52800547225A4F6A003818B9 /* TextHandler.swift */,
 				5280054B225A6350003818B9 /* ClasteringHandler.swift */,
+				52345587225B2AA4007A1A3B /* KMeans.swift */,
 				52800535225A4C4C003818B9 /* Assets.xcassets */,
 				52800537225A4C4C003818B9 /* Main.storyboard */,
 				5280053A225A4C4C003818B9 /* Info.plist */,
@@ -175,6 +178,7 @@
 				52800548225A4F6A003818B9 /* TextHandler.swift in Sources */,
 				52800534225A4C4B003818B9 /* ViewController.swift in Sources */,
 				52800532225A4C4B003818B9 /* AppDelegate.swift in Sources */,
+				52345588225B2AA4007A1A3B /* KMeans.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,6 +15,7 @@ class ViewController: NSViewController {
     let setsTitles = ["Networking", "Medicine", "Sociology"]
     var thesaurusArray = [[String]]()
     var vectorsForSetsArray = [[[Int]]]()
+    var clusterCenters: [[Int]]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,32 +37,41 @@ class ViewController: NSViewController {
             }
             vectorsForSetsArray.append(vectorsForSet)
         }
-    
+        
+        let kMeans = KMeans()
+        clusterCenters = kMeans.getClasterCenters(vectors: vectorsForSetsArray)
         for i in 1...3 {
             addSeriesToChart(num: i)
+            addSeriesToChart(num: 10 + i)
         }
         self.chartView.chart.updateData()
+        
+        print(kMeans.defineClaster(for: vectorsForSetsArray[2][2]))
     }
     
-    func createMarker(color: NSColor) -> NChartMarker {
+    func createMarker(color: NSColor, size: Float) -> NChartMarker {
         let marker = NChartMarker()
         marker.brush = NChartSolidColorBrush(color: color)
         marker.shape = NChartMarkerShape.circle
-        marker.size = 8
+        marker.size = size
         return marker
     }
     
     func addSeriesToChart(num: Int) {
         let series = NChartBubbleSeries()
         var markerColor = NSColor.black
-        if num == 1 {
+        var markerSize: Float = 8
+        if num % 10 == 1 {
             markerColor = NSColor(displayP3Red: 140/255, green: 25/255, blue: 88/255, alpha: 1.0)
-        } else if num == 2 {
+        } else if num % 10 == 2 {
             markerColor = NSColor(displayP3Red: 25/255, green: 146/255, blue: 46/255, alpha: 1.0)
-        } else if num == 3 {
+        } else if num % 10 == 3 {
             markerColor = NSColor(displayP3Red: 194/255, green: 0/255, blue: 13/255, alpha: 1.0)
         }
-        series.marker = createMarker(color: markerColor)
+        if num > 10 {
+            markerSize = 14
+        }
+        series.marker = createMarker(color: markerColor, size: markerSize)
         series.tag = num
         series.dataSource = self
         self.chartView.chart.addSeries(series)
@@ -88,9 +98,9 @@ class ViewController: NSViewController {
 extension ViewController: NChartSeriesDataSource {
     
     func seriesDataSourcePoints(for series: NChartSeries!) -> [Any]! {
-        if series.tag >= 1 && series.tag <= 3 {
+        var points = [NChartPoint]()
+        if series.tag > 0 && series.tag < 4 {
             let vectors = vectorsForSetsArray[series.tag - 1]
-            var points = [NChartPoint]()
             for i in 0...3 {
                 let vector = vectors[i]
                 if let chartPoint = NChartPoint(state: NChartPointState(alignedToXZWithX: vector[0], y: Double(vector[1]), z: vector[2]), for: series) {
@@ -98,12 +108,22 @@ extension ViewController: NChartSeriesDataSource {
                 }
             }
             return points
+        } else if series.tag > 10 {
+            guard let centers = self.clusterCenters else { return [] }
+            let index = series.tag % 10 - 1
+            let center = centers[index]
+            if let point = NChartPoint(state: NChartPointState(alignedToXZWithX: center[0], y: Double(center[1]), z: center[2]), for: series) {
+                points.append(point)
+            }
         }
-        return []
+        return points
     }
     
     func seriesDataSourceName(for series: NChartSeries!) -> String! {
-        return "\(series.tag) set"
+        if series.tag > 0 && series.tag < 4 {
+            return "\(series.tag) set"
+        }
+        return nil
     }
     
 }

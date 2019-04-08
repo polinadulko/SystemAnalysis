@@ -16,7 +16,7 @@ class KMeans {
     var clusters = [Int]()
     var sumOfDistances = 0.0
     
-    func getClasterCenters(vectors: [[[Int]]]) -> [[Int]] {
+    func train(vectors: [[[Int]]]) -> ([[Int]], [[[Int]]]) {
         var data = [[Int]]()
         for group in vectors {
             for vector in group {
@@ -28,11 +28,12 @@ class KMeans {
         clusters = [Int](repeating: 0, count: n)
         if k == n {
             centroids = data
-            return centroids
+            return (centroids, vectors)
         }
         
+        let index = Int(arc4random() % 3)
         for i in 0...2 {
-            centroids.append(data[1 + i * 4])
+            centroids.append(data[index + i * 4])
         }
         var isCovergenceReached = false
         print("\nK-means")
@@ -83,7 +84,13 @@ class KMeans {
                 centroids = newCentroids
             }
         }
-        return centroids
+        
+        var newVectors = [[[Int]]](repeating: [[Int]](), count: 3)
+        for i in 0...data.count - 1 {
+            let cluster = clusters[i]
+            newVectors[cluster].append(data[i])
+        }
+        return (centroids, newVectors)
     }
     
     func distanceTo(vector1: [Int], vector2: [Int]) -> Double {
@@ -96,8 +103,10 @@ class KMeans {
     func defineClaster(for vector: [Int]) -> Int {
         var clusterIndex = 0
         var minDistance = Double.infinity
+        print("\nРасстояния до центров кластеров:")
         for i in 0...2 {
             let distance = distanceTo(vector1: vector, vector2: centroids[i])
+            print("\(i + 1) - \(Int(distance))")
             if distance < minDistance {
                 clusterIndex = i + 1
                 minDistance = distance

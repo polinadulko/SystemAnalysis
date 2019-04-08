@@ -15,7 +15,7 @@ class ViewController: NSViewController {
     let setsTitles = ["Networking", "Medicine", "Sociology"]
     var thesaurusArray = [[String]]()
     var vectorsForSetsArray = [[[Int]]]()
-    var clusterCenters: [[Int]]?
+    var clusterCenters = [[Int]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +29,9 @@ class ViewController: NSViewController {
         }
         
         let clasteringHandler = ClasteringHandler(firstThesaurus: thesaurusArray[0], secondThesaurus: thesaurusArray[1], thirdThesaurus: thesaurusArray[2])
+        print("\nВектора признаков:")
         for i in 0...2 {
             let vectorsForSet = textHandler.getVectorsForSet(set: setsTitles[i], clasteringHandler: clasteringHandler)
-            print("\nВектора признаков \(i + 1):")
             for vector in vectorsForSet {
                 print(vector)
             }
@@ -39,14 +39,21 @@ class ViewController: NSViewController {
         }
         
         let kMeans = KMeans()
-        clusterCenters = kMeans.getClasterCenters(vectors: vectorsForSetsArray)
+        (clusterCenters, vectorsForSetsArray) = kMeans.train(vectors: vectorsForSetsArray)
         for i in 1...3 {
             addSeriesToChart(num: i)
             addSeriesToChart(num: 10 + i)
         }
         self.chartView.chart.updateData()
         
-        print(kMeans.defineClaster(for: vectorsForSetsArray[2][2]))
+        print("\nДобавленные тексты:")
+        for title in setsTitles.reversed() {
+            let fileTitle = title.lowercased() + "_5"
+            if let vector = textHandler.getVectorForText(fileTitle: fileTitle, subdirectoryTitle: title, clasteringHandler: clasteringHandler) {
+                let clusterIndex = kMeans.defineClaster(for: vector)
+                print(fileTitle + ".txt - \(clusterIndex) кластер")
+            }
+        }
     }
     
     func createMarker(color: NSColor, size: Float) -> NChartMarker {
@@ -101,7 +108,7 @@ extension ViewController: NChartSeriesDataSource {
         var points = [NChartPoint]()
         if series.tag > 0 && series.tag < 4 {
             let vectors = vectorsForSetsArray[series.tag - 1]
-            for i in 0...3 {
+            for i in 0...vectors.count - 1 {
                 let vector = vectors[i]
                 if let chartPoint = NChartPoint(state: NChartPointState(alignedToXZWithX: vector[0], y: Double(vector[1]), z: vector[2]), for: series) {
                     points.append(chartPoint)
@@ -109,9 +116,8 @@ extension ViewController: NChartSeriesDataSource {
             }
             return points
         } else if series.tag > 10 {
-            guard let centers = self.clusterCenters else { return [] }
             let index = series.tag % 10 - 1
-            let center = centers[index]
+            let center = clusterCenters[index]
             if let point = NChartPoint(state: NChartPointState(alignedToXZWithX: center[0], y: Double(center[1]), z: center[2]), for: series) {
                 points.append(point)
             }
